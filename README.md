@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# To access the application
+Filling out the form with any credentials will generate the token to access the application
 
 ## Available Scripts
 

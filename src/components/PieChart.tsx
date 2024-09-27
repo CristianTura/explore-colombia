@@ -7,8 +7,6 @@ interface PieChartProps {
 }
   
 const PieChart: React.FC<PieChartProps> = ({data}) => {
-    // const [dataPie, setDataPie] = useState([])
-    // const [legendData, setlegendData] = useState([])
 
     const options = {
         title: {

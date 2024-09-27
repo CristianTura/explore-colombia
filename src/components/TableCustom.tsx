@@ -1,18 +1,38 @@
-import { HeadersTable } from 'hooks/useDepartments';
-import React, { useState } from 'react';
-import { Button, Card, CardBody, Table } from 'react-bootstrap';
+import { HeadersTableDepartments } from 'hooks/useDepartments';
+import React from 'react';
+import { Button, CardBody, Table } from 'react-bootstrap';
 import { DataDepartment, PagedTable } from 'redux/slices/dashboard';
 import TableLoading from './loading/TableLoading';
+import { HeadersTableCities } from 'hooks/useCities';
+import { DataCities } from 'redux/slices/pages';
+import Paginator from './ui/Paginator';
 
-interface TableProps {
-  headers: HeadersTable[];
-  data: DataDepartment[];
+
+type Data = DataCities | DataDepartment;
+export interface Header<T> {
+  title: string;
+  refCol: keyof T;
+}
+
+type AnyHeader = Header<DataCities> | Header<DataDepartment>;
+interface TableProps<T> {
+  headers: Header<T>[];
+  data: T[];
   paged: PagedTable | null;
   handleFetch: (page: number, numberPage: number) => void;
   isLoading: boolean;
 }
 
-const TableCustom: React.FC<TableProps>= ({headers, data, paged, handleFetch, isLoading}) => {
+function getProperty<T>(obj: T, key: keyof T): React.ReactNode {
+  const value = obj[key];
+
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+    return value.toString();
+  }
+
+  return null;
+}
+const TableCustom = <T,>({ headers, data, paged, handleFetch, isLoading }: TableProps<T>) => {
 
   return (
     <CardBody className="pt-0">
@@ -33,53 +53,14 @@ const TableCustom: React.FC<TableProps>= ({headers, data, paged, handleFetch, is
                 : data.map((el, index) => (
                   <tr key={index}>
                     {headers.map((header, idx) => (
-                      <td key={idx}>{el[header.refCol]}</td>
+                      <td key={idx}>{getProperty(el, header.refCol) ?? "-"}</td>
                     ))}
                   </tr>
               ))
             }
           </tbody>
         </Table>
-        <CardBody>
-          <div className="d-flex align-items-center">
-              <Button
-                  className="me-1 bg-red-medium border-0"
-                  onClick={() => handleFetch(1,10)}
-                  disabled={paged?.page === 1}
-              >
-                  {"<<"}
-              </Button>
-              <Button
-                  className="me-1 bg-red-medium border-0"
-                  onClick={() => handleFetch((paged?.page ?? 2) -1, 10)}
-                  disabled={paged?.page === 1}
-              >
-                  {"<"}
-              </Button>
-              <div className="px-3">
-                  Page{" "}
-                  <b>
-                    {paged?.page }</b>{" "}of{" "}
-                  <b>
-                  {paged?.pageCount}
-                  </b>
-              </div>
-              <Button
-                  className="ms-1 bg-red-medium border-0"
-                  onClick={() => handleFetch((paged?.page ?? 0)+ 1, 10 )}
-                  disabled={paged?.page === paged?.pageCount}
-              >
-                  {">"}
-              </Button>
-              <Button
-                  className="ms-1 bg-red-medium border-0"
-                  onClick={() => handleFetch((paged?.pageCount ?? 1), 10)}
-                  disabled={paged?.page === paged?.pageCount}
-              >
-                  {">>"}
-              </Button>
-          </div>
-        </CardBody>
+        <Paginator handleFetch={handleFetch} paged={paged}/>
       </div>
     </CardBody>
   );

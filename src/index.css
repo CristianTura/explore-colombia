@@ -113,26 +113,6 @@ button.bg-primary{
   height: 100px;
 }
 
-
-/* -----modal---- */
-
-.modal-dialog{
-  height: 100vh;
-  align-items: center;
-  margin: 0 auto;
-  display: flex;
-  max-width: 50vw;
-  width: 50vw;
-}
-
-.modal-content{
-  max-height: 90vh;
-  overflow: auto;
-  padding: 30px;
-  width: 50vw;
-}
-
-
 /* ----input[type]---- */
 
 input[disabled]{
@@ -166,7 +146,7 @@ input[disabled]~.form-check-label{
 
 
 
-/* ----bg colors---- */
+/* ----table---- */
 
 .table-light{
   background-color: #a2a3a8 !important;
@@ -174,7 +154,79 @@ input[disabled]~.form-check-label{
     color: #495057 !important;
 }
 
-@media (max-width: 740px) {
+
+.container-fluid {
+  max-height: 100vh;
+  overflow: auto;
+}
+
+.img-card{
+  max-height: 214px;
+  height: 214px;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.card-description{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  line-clamp: 5;
+  box-orient: vertical;
+  display: box;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 280px;
+  transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar .toggle-btn {
+  width: 100%;
+  text-align: left;
+}
+
+.user-section img {
+  width: 30px;
+  height: 30px;
+}
+
+.sidebar .show li span {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px;
+    padding: 1rem;
+  }
+  
+  .sidebar .toggle-btn {
+    display: none;
+  }
+
+  .sidebar li span {
+    display: none;
+  }
+
   .sm-w-90{
     width: 80vw !important;
   }

@@ -2,31 +2,32 @@ import React from 'react';
 import Sidebar from 'components/ui/Sidebar';
 import { Card, CardBody } from 'react-bootstrap';
 import TableCustom from 'components/TableCustom';
-import { useDepartments } from 'hooks/useDepartments';
+import { usePresidents } from 'hooks/usePresidents';
 
 
-const Departments: React.FC = () => {
-  const { isLoading, dataDepartments, headers, pagedDepartments, getDepartments  } = useDepartments()
+const Presidents: React.FC = () => {
+  const { isLoading, dataPresidentsCustom, headers, pagedPresidents, getPresidents } = usePresidents()
 
   return (
     <Sidebar>
-      <Card>
+       <Card>
+       
         <CardBody>
           <div className="bg-warning-light py-2 px-3 mt-3 d-flex align-items-center justify-content-between mb-3">
-            <h5 className="mb-0">Departments of Colombia</h5>
+            <h5 className="mb-0">Presidents of Colombia</h5>
           </div>
         </CardBody>
         <TableCustom 
           headers={headers}
-          data={dataDepartments}
-          paged={pagedDepartments} 
-          handleFetch={getDepartments}
+          data={dataPresidentsCustom}
+          paged={pagedPresidents} 
+          handleFetch={getPresidents}
           isLoading={isLoading}
         />
-      </Card>
+     </Card>
     </Sidebar>
     
   );
 };
 
-export default Departments;
+export default Presidents;

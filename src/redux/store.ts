@@ -4,18 +4,13 @@ import storage from 'redux-persist/lib/storage';
 
 import authReducer from './slices/auth';
 import dashboardReducer from './slices/dashboard';
+import pagesReducer from './slices/pages';
 
 const persistAuthConfig = {
   key: 'auth',
   storage,
   whitelist: ['accessToken']
 };
-
-// const persistSettingsConfig = {
-//   key: 'settings',
-//   storage,
-//   whitelist: ['themeMode']
-// };
 
 const store = configureStore({
   reducer: {
@@ -24,6 +19,7 @@ const store = configureStore({
       authReducer
     ),
     dashboard: dashboardReducer,
+    pages: pagesReducer,
 
   },
   middleware: (defaultMiddleware) =>

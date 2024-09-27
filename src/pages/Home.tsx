@@ -4,6 +4,7 @@ import CardHome from 'components/CardHome';
 import { useHome } from 'hooks/useHome';
 import CardLoading from 'components/loading/CardLoading';
 import PieChart from 'components/PieChart';
+import TouristicByDepartment from 'components/TouristicByDepartment';
 
 
 const Home: React.FC = () => {
@@ -40,6 +41,10 @@ const Home: React.FC = () => {
       <div className='mt-5'>
         <h3 className='text-center'>Departments with the highest population</h3>
         <PieChart data={dataGraphDepartments}/>
+      </div>
+
+      <div className='mt-5'>
+        <TouristicByDepartment/>
       </div>
     </Sidebar>
     

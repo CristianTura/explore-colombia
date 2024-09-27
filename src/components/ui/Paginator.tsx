@@ -1,6 +1,6 @@
+import { PagedTable } from 'interfaces';
 import React from 'react';
 import { Button, CardBody } from 'react-bootstrap';
-import { PagedTable } from 'redux/slices/dashboard';
 
 interface PaginatorProps {
     paged: PagedTable | null;
@@ -11,7 +11,7 @@ const Paginator: React.FC<PaginatorProps> = ({handleFetch, paged}) => {
 
   return (
     <CardBody>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center justify-content-center pt-3">
             <Button
                 className="me-1 bg-red-medium border-0"
                 onClick={() => handleFetch(1,10)}

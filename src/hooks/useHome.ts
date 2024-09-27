@@ -1,36 +1,14 @@
 import { useCustomDispatch, useCustomSelector } from "./redux";
 import { getDepartmentsData, getGeneralData } from '../redux/slices/dashboard/index';
 import { useEffect, useState } from "react";
+import { DataCard, DataGraphDepartments, SeriesData } from "interfaces";
 
-export interface DataCard {
-  title: string;
-  Capital?: string;
-  Region?: string;
-  Population?: string | number;
-  Surface?: string | number;
-  Limites?: string;
-  "Sub Region"?: string;
-  Currency?: string;
-  "Time Zone"?: string;
-  bgCustom?: string;
-}
-
-export interface SeriesData {
-  name: string,
-  value: string | number,
-}
-
-
-export interface DataGraphDepartments {
-  seriesData: SeriesData[];
-  legendData: string[];
-}
 
 export const useHome = () => {
     const dispatch = useCustomDispatch();
     const [dataCards, setDataCards] = useState<DataCard[]>([])
     const [imageFlag, setImageFlag] = useState<string>("")
-    const [dataGraphDepartments, setDataGraphDepartments] = useState<DataGraphDepartments >({
+    const [dataGraphDepartments, setDataGraphDepartments] = useState<DataGraphDepartments>({
       seriesData: [],
       legendData: []
     })

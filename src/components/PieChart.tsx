@@ -1,6 +1,6 @@
 import React  from 'react'
 import ReactEcharts from "echarts-for-react"
-import { DataGraphDepartments } from 'hooks/useHome';
+import { DataGraphDepartments } from 'interfaces';
 
 interface PieChartProps {
     data: DataGraphDepartments;

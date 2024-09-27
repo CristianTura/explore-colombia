@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
-import { DataTouristicAttraction } from 'redux/slices/pages';
 import withoutPhoto from 'assets/noPhoto.webp'
+import { DataTouristicAttraction } from 'interfaces';
 
 interface CardHomeProps {
     data: DataTouristicAttraction;

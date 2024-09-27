@@ -18,7 +18,7 @@ const TouristicAttraction: React.FC = () => {
             <h5 className="mb-0">TouristicAttraction of Colombia</h5>
           </div>
         </CardBody>
-        <div className='d-flex gap-2 flex-wrap p-3'>
+        <div className='d-flex gap-2 flex-wrap p-3 justify-content-center'>
             {
                 isLoading 
                 ?   <CardLoading number={12}/>

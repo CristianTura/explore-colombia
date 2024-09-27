@@ -1,13 +1,10 @@
 import { useCustomDispatch, useCustomSelector } from "./redux";
 import { useEffect, useState } from "react";
-import { DataPresidents, getPresidentsPaged } from "../redux/slices/pages";
+import { getPresidentsPaged } from "../redux/slices/pages";
+import { DataPresidents, HeadersTablePresident } from "interfaces";
 
-export interface HeadersTableCities {
-  title: string;
-  refCol: keyof DataPresidents;
-}
 
-const headers: HeadersTableCities[] = [
+const headers: HeadersTablePresident[] = [
     {title: 'Id', refCol: 'id'}, 
     {title: 'Name', refCol: 'name'}, 
     {title: 'Last Name', refCol: 'lastName'}, 

@@ -1,25 +1,15 @@
 import { createAsyncThunk, createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { AxiosResponse, AxiosError } from 'axios';
+import { AuthState, Login } from 'interfaces';
 import axios from 'utils/axios';
 const authUrl = process.env.REACT_APP_URL_AUTH_API;
-
-
-export interface Login {
-  email: string;
-  password: string;
-}
-export interface AuthState {
-  accessToken: string | null;
-  isLoading: boolean;
-  dataUser: Login;
-}
 
 const initialState: AuthState = {
   accessToken: null,
   isLoading: false,
   dataUser: {
-    email: "",
-    password: ""
+      email: "",
+      password: ""
   }
 };
 

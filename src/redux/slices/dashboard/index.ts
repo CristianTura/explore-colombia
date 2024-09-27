@@ -3,40 +3,8 @@ import { Thunk } from 'redux/store';
 import axios from 'utils/axios';
 import {  AppDispatch } from 'redux/store'; 
 import { AxiosError, AxiosResponse } from 'axios';
+import { DashboardState, DataCountry, DataDepartment, PagedTable } from 'interfaces';
 
-export interface DashboardState {
-  isLoading: boolean;
-  dataCountry: DataCountry | null;
-  departments: DataDepartment[] | null;
-  pagedDepartments: PagedTable | null;
-}
-
-export interface DataCountry {
-  stateCapital: string;
-  region: string;
-  population: string;
-  surface: string;
-  borders: string[];
-  subRegion: string;
-  currency: string;
-  timeZone: string;
-  flags: string[];
-}
-
-export interface DataDepartment {
-  id?: number | string;
-  name: string;
-  surface?: string;
-  population: number;
-  phonePrefix?: string;
-}
-
-export interface PagedTable {
-  page: number;
-  pageSize: number;
-  totalRecords: number;
-  pageCount: number;
-}
 
 const initialState: DashboardState = {
   isLoading: false,

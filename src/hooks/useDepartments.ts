@@ -1,11 +1,8 @@
 import { useCustomDispatch, useCustomSelector } from "./redux";
-import { DataDepartment, getDepartmentsDataPaged } from '../redux/slices/dashboard/index';
+import { getDepartmentsDataPaged } from '../redux/slices/dashboard/index';
 import { useEffect, useState } from "react";
+import { DataDepartment, HeadersTableDepartments } from "interfaces";
 
-export interface HeadersTableDepartments {
-  title: string;
-  refCol: keyof DataDepartment;
-}
 
 const headers: HeadersTableDepartments[] = [
     {title: 'Id', refCol: 'id'}, 

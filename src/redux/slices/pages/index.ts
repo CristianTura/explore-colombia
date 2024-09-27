@@ -3,42 +3,7 @@ import { Thunk } from 'redux/store';
 import axios from 'utils/axios';
 import {  AppDispatch } from 'redux/store'; 
 import { AxiosError, AxiosResponse } from 'axios';
-import { PagedTable } from '../dashboard';
-
-export interface PagesState {
-  isLoading: boolean;
-  dataCities: DataCities[] | null;
-  pagedCities: PagedTable | null;
-  dataPresidents: DataPresidents[] | null;
-  pagedPresidents: PagedTable | null;
-  touristicAttraction: DataTouristicAttraction[] | null;
-  pagedTouristicAttraction: PagedTable | null;
-  touristicByDepartment: DataTouristicAttraction[] | null;
-}
-
-export interface DataCities {
-  id?: number | string;
-  name: string;
-  surface?: string;
-  population: number;
-  postalCode?: string;
-}
-
-export interface DataPresidents {
-  id?: number | string;
-  name?: string;
-  lastName: string;
-  startPeriodDate: number;
-  endPeriodDate?: string;
-  politicalParty?: string;
-}
-
-export interface DataTouristicAttraction {
-  id?: number | string;
-  name?: string;
-  images?: string[];
-  description?: string;
-}
+import { DataCities, DataPresidents, DataTouristicAttraction, PagedTable, PagesState } from 'interfaces';
 
 
 const initialState: PagesState = {

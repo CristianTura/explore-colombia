@@ -1,27 +1,11 @@
-import { HeadersTableDepartments } from 'hooks/useDepartments';
 import React from 'react';
-import { Button, CardBody, Table } from 'react-bootstrap';
-import { DataDepartment, PagedTable } from 'redux/slices/dashboard';
+import { CardBody, Table } from 'react-bootstrap';
 import TableLoading from './loading/TableLoading';
-import { HeadersTableCities } from 'hooks/useCities';
-import { DataCities } from 'redux/slices/pages';
 import Paginator from './ui/Paginator';
+import { TableProps } from 'interfaces';
 
 
-type Data = DataCities | DataDepartment;
-export interface Header<T> {
-  title: string;
-  refCol: keyof T;
-}
 
-type AnyHeader = Header<DataCities> | Header<DataDepartment>;
-interface TableProps<T> {
-  headers: Header<T>[];
-  data: T[];
-  paged: PagedTable | null;
-  handleFetch: (page: number, numberPage: number) => void;
-  isLoading: boolean;
-}
 
 function getProperty<T>(obj: T, key: keyof T): React.ReactNode {
   const value = obj[key];

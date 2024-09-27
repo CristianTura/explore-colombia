@@ -1,6 +1,7 @@
 import { useCustomDispatch, useCustomSelector } from "./redux";
 import { useEffect, useState } from "react";
-import { DataTouristicAttraction, getTouristicAttractionPaged } from "../redux/slices/pages";
+import { getTouristicAttractionPaged } from "../redux/slices/pages";
+import { DataTouristicAttraction } from "interfaces";
 
 
 export const useTouristicAttraction = () => {

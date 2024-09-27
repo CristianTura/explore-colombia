@@ -1,11 +1,9 @@
 import { useCustomDispatch, useCustomSelector } from "./redux";
 import { useEffect, useState } from "react";
-import { DataCities, getCitiesDataPaged } from "../redux/slices/pages";
+import { getCitiesDataPaged } from "../redux/slices/pages";
+import { DataCities, HeadersTableCities } from "interfaces";
 
-export interface HeadersTableCities {
-  title: string;
-  refCol: keyof DataCities;
-}
+
 
 const headers: HeadersTableCities[] = [
     {title: 'Id', refCol: 'id'}, 
